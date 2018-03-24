@@ -10,6 +10,13 @@
 # http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 # ===================================================================
 
+logging:
+    level:
+        ROOT: DEBUG
+        com.tumeda.tnote: DEBUG
+        io.github.jhipster: DEBUG
+
+
 eureka:
     instance:
         hostname: tnoteserver.herokuapp.com
