@@ -1,0 +1,41 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "note",
+            "otherEntityName": "note",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "children",
+            "otherEntityName": "note",
+            "otherEntityRelationshipName": "note"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "title",
+            "javadoc": "The firstname attribute.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "text",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "created",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20180321033037",
+    "javadoc": "The Employee entity.",
+    "entityTableName": "note",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix",
+    "microserviceName": "tnoteserver"
+}
