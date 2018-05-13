@@ -14,5 +14,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="note"/>
 
+        <addForeignKeyConstraint baseColumnNames="topic_id"
+                                 baseTableName="note"
+                                 constraintName="fk_note_topic_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="topic"/>
+
     </changeSet>
 </databaseChangeLog>

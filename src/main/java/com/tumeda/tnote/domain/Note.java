@@ -47,6 +47,9 @@ public class Note implements Serializable {
     @JsonIgnore
     private Set<Note> children = new HashSet<>();
 
+    @ManyToOne
+    private Topic topic;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -131,6 +134,19 @@ public class Note implements Serializable {
 
     public void setChildren(Set<Note> notes) {
         this.children = notes;
+    }
+
+    public Topic getTopic() {
+        return topic;
+    }
+
+    public Note topic(Topic topic) {
+        this.topic = topic;
+        return this;
+    }
+
+    public void setTopic(Topic topic) {
+        this.topic = topic;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

@@ -10,7 +10,22 @@ entity Note {
 	created LocalDate
 }
 
+entity Author {
+    username String
+}
 
+entity Topic {
+    title String,
+    description String,
+}
+
+relationship OneToMany {
+   Author{profiles} to Topic 
+}
+
+relationship OneToMany {
+   Topic{notes} to Note 
+}
 
 relationship OneToMany {
 	Note{children} to Note

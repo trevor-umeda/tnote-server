@@ -25,7 +25,7 @@ import java.util.Collection;
 @ComponentScan
 @EnableAutoConfiguration(exclude = {MetricFilterAutoConfiguration.class, MetricRepositoryAutoConfiguration.class})
 @EnableConfigurationProperties({LiquibaseProperties.class, ApplicationProperties.class})
-//@EnableDiscoveryClient
+@EnableDiscoveryClient
 public class TnoteserverApp {
 
     private static final Logger log = LoggerFactory.getLogger(TnoteserverApp.class);
@@ -63,9 +63,16 @@ public class TnoteserverApp {
      * @throws UnknownHostException if the local host name could not be resolved into an address
      */
     public static void main(String[] args) throws UnknownHostException {
+        log.info("HELLO START");
         SpringApplication app = new SpringApplication(TnoteserverApp.class);
+        log.info("SPRING APP STARTED?");
         DefaultProfileUtil.addDefaultProfile(app);
+        log.info("DEFAULT PROFILE LOADED");
+        for(String arg : args) {
+            log.info(arg);
+        }
         Environment env = app.run(args).getEnvironment();
+        log.info("HMMMM");
         String protocol = "http";
         if (env.getProperty("server.ssl.key-store") != null) {
             protocol = "https";

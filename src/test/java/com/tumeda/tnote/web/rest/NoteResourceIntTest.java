@@ -125,7 +125,7 @@ public class NoteResourceIntTest {
         Note testNote = noteList.get(noteList.size() - 1);
         assertThat(testNote.getTitle()).isEqualTo(DEFAULT_TITLE);
         assertThat(testNote.getText()).isEqualTo(DEFAULT_TEXT);
-        assertThat(testNote.getCreated()).isEqualTo(DEFAULT_CREATED);
+        assertThat(testNote.getCreated()).isEqualTo(LocalDate.now());
     }
 
     @Test

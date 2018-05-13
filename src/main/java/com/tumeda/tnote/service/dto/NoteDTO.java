@@ -22,6 +22,10 @@ public class NoteDTO implements Serializable {
 
     private Long noteId;
 
+    private Long topicId;
+
+    private Set<NoteDTO> children;
+
     public Long getId() {
         return id;
     }
@@ -61,6 +65,18 @@ public class NoteDTO implements Serializable {
     public void setNoteId(Long noteId) {
         this.noteId = noteId;
     }
+
+    public Long getTopicId() {
+        return topicId;
+    }
+
+    public void setTopicId(Long topicId) {
+        this.topicId = topicId;
+    }
+
+    public Set<NoteDTO> getChildren() { return children; }
+
+    public void setChildren(Set<NoteDTO> children) { this.children =  children; }
 
     @Override
     public boolean equals(Object o) {

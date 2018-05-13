@@ -12,6 +12,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+
 
 /**
  * Service Implementation for managing Note.
@@ -40,6 +42,7 @@ public class NoteServiceImpl implements NoteService {
     @Override
     public NoteDTO save(NoteDTO noteDTO) {
         log.debug("Request to save Note : {}", noteDTO);
+        noteDTO.setCreated(LocalDate.now());
         Note note = noteMapper.toEntity(noteDTO);
         note = noteRepository.save(note);
         return noteMapper.toDto(note);

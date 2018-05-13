@@ -12,6 +12,12 @@
             "relationshipName": "children",
             "otherEntityName": "note",
             "otherEntityRelationshipName": "note"
+        },
+        {
+            "relationshipName": "topic",
+            "otherEntityName": "topic",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
         }
     ],
     "fields": [

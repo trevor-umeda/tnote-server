@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+
+    <changeSet id="20180403042931-2" author="jhipster" context="dev">
+        <sql>
+            INSERT INTO `author` VALUES
+            (951, 'tumeda'),
+            (952, 'FroggyP')
+        </sql>
+
+    </changeSet>
+    <changeSet id="20180403042931-3" author="jhipster" context="dev">
+        <sql>
+            INSERT INTO `topic` VALUES
+            (1001, 'Guilty Gear', 'Stuff for guilty gear', 951),
+            (1002, 'Shadowverse', 'Stuff for shadowverse', 951)
+        </sql>
+
+    </changeSet>
+    <changeSet id="20180403042931-4" author="jhipster" context="dev">
+        <sql>
+            INSERT INTO `note` VALUES
+            (951, 'Eddie', 'Eddie Notes', NULL, NULL, 1001),
+            (952, 'Eddie BNB', '2k something', NULL, 951, NULL),
+            (953, 'Eddie BNB', 'Can now cancel into dust', NULL, 952, NULL)
+        </sql>
+
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>
