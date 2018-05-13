@@ -24,10 +24,13 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
-import java.time.LocalDate;
+import java.time.Instant;
+import java.time.ZonedDateTime;
+import java.time.ZoneOffset;
 import java.time.ZoneId;
 import java.util.List;
 
+import static com.tumeda.tnote.web.rest.TestUtil.sameInstant;
 import static com.tumeda.tnote.web.rest.TestUtil.createFormattingConversionService;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
@@ -49,8 +52,8 @@ public class NoteResourceIntTest {
     private static final String DEFAULT_TEXT = "AAAAAAAAAA";
     private static final String UPDATED_TEXT = "BBBBBBBBBB";
 
-    private static final LocalDate DEFAULT_CREATED = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_CREATED = LocalDate.now(ZoneId.systemDefault());
+    private static final ZonedDateTime DEFAULT_CREATED = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_CREATED = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
     @Autowired
     private NoteRepository noteRepository;
@@ -125,7 +128,7 @@ public class NoteResourceIntTest {
         Note testNote = noteList.get(noteList.size() - 1);
         assertThat(testNote.getTitle()).isEqualTo(DEFAULT_TITLE);
         assertThat(testNote.getText()).isEqualTo(DEFAULT_TEXT);
-        assertThat(testNote.getCreated()).isEqualTo(LocalDate.now());
+        assertThat(testNote.getCreated()).isEqualTo(DEFAULT_CREATED);
     }
 
     @Test
@@ -161,7 +164,7 @@ public class NoteResourceIntTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(note.getId().intValue())))
             .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE.toString())))
             .andExpect(jsonPath("$.[*].text").value(hasItem(DEFAULT_TEXT.toString())))
-            .andExpect(jsonPath("$.[*].created").value(hasItem(DEFAULT_CREATED.toString())));
+            .andExpect(jsonPath("$.[*].created").value(hasItem(sameInstant(DEFAULT_CREATED))));
     }
 
     @Test
@@ -177,7 +180,7 @@ public class NoteResourceIntTest {
             .andExpect(jsonPath("$.id").value(note.getId().intValue()))
             .andExpect(jsonPath("$.title").value(DEFAULT_TITLE.toString()))
             .andExpect(jsonPath("$.text").value(DEFAULT_TEXT.toString()))
-            .andExpect(jsonPath("$.created").value(DEFAULT_CREATED.toString()));
+            .andExpect(jsonPath("$.created").value(sameInstant(DEFAULT_CREATED)));
     }
 
     @Test

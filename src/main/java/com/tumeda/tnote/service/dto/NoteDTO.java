@@ -1,7 +1,7 @@
 package com.tumeda.tnote.service.dto;
 
 
-import java.time.LocalDate;
+import java.time.ZonedDateTime;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,7 +18,7 @@ public class NoteDTO implements Serializable {
 
     private String text;
 
-    private LocalDate created;
+    private ZonedDateTime created;
 
     private Long noteId;
 
@@ -50,11 +50,11 @@ public class NoteDTO implements Serializable {
         this.text = text;
     }
 
-    public LocalDate getCreated() {
+    public ZonedDateTime getCreated() {
         return created;
     }
 
-    public void setCreated(LocalDate created) {
+    public void setCreated(ZonedDateTime created) {
         this.created = created;
     }
 
