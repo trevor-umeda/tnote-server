@@ -7,7 +7,7 @@ import io.swagger.annotations.ApiModelProperty;
 import javax.persistence.*;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.ZonedDateTime;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Objects;
@@ -38,7 +38,7 @@ public class Note implements Serializable {
     private String text;
 
     @Column(name = "created")
-    private LocalDate created;
+    private ZonedDateTime created;
 
     @ManyToOne
     private Note note;
@@ -85,16 +85,16 @@ public class Note implements Serializable {
         this.text = text;
     }
 
-    public LocalDate getCreated() {
+    public ZonedDateTime getCreated() {
         return created;
     }
 
-    public Note created(LocalDate created) {
+    public Note created(ZonedDateTime created) {
         this.created = created;
         return this;
     }
 
-    public void setCreated(LocalDate created) {
+    public void setCreated(ZonedDateTime created) {
         this.created = created;
     }
 

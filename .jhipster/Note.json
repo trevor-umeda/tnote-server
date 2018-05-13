@@ -32,7 +32,7 @@
         },
         {
             "fieldName": "created",
-            "fieldType": "LocalDate"
+            "fieldType": "ZonedDateTime"
         }
     ],
     "changelogDate": "20180321033037",
