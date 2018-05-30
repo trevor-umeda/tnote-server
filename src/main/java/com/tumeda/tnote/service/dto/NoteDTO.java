@@ -20,6 +20,8 @@ public class NoteDTO implements Serializable {
 
     private ZonedDateTime created;
 
+    private String tag;
+
     private Long noteId;
 
     private Long topicId;
@@ -57,6 +59,15 @@ public class NoteDTO implements Serializable {
     public void setCreated(ZonedDateTime created) {
         this.created = created;
     }
+
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
 
     public Long getNoteId() {
         return noteId;
@@ -106,6 +117,7 @@ public class NoteDTO implements Serializable {
             ", title='" + getTitle() + "'" +
             ", text='" + getText() + "'" +
             ", created='" + getCreated() + "'" +
+            ", tag='" + getTag() + "'" +
             "}";
     }
 }

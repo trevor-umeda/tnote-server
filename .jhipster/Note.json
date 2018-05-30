@@ -33,15 +33,20 @@
         {
             "fieldName": "created",
             "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "tag",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20180321033037",
-    "javadoc": "The Employee entity.",
-    "entityTableName": "note",
     "dto": "mapstruct",
-    "pagination": "infinite-scroll",
     "service": "serviceImpl",
+    "entityTableName": "note",
     "jpaMetamodelFiltering": false,
+    "pagination": "infinite-scroll",
+    "javadoc": "The Employee entity.",
     "angularJSSuffix": "mySuffix",
-    "microserviceName": "tnoteserver"
+    "microserviceName": "tnoteserver",
+    "searchEngine": false
 }

@@ -40,6 +40,9 @@ public class Note implements Serializable {
     @Column(name = "created")
     private ZonedDateTime created;
 
+    @Column(name = "tag")
+    private String tag;
+
     @ManyToOne
     private Note note;
 
@@ -96,6 +99,19 @@ public class Note implements Serializable {
 
     public void setCreated(ZonedDateTime created) {
         this.created = created;
+    }
+
+    public String getTag() {
+        return tag;
+    }
+
+    public Note tag(String tag) {
+        this.tag = tag;
+        return this;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 
     public Note getNote() {
@@ -177,6 +193,7 @@ public class Note implements Serializable {
             ", title='" + getTitle() + "'" +
             ", text='" + getText() + "'" +
             ", created='" + getCreated() + "'" +
+            ", tag='" + getTag() + "'" +
             "}";
     }
 }

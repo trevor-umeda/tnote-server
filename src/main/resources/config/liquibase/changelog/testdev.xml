@@ -26,9 +26,9 @@
     <changeSet id="20180403042931-4" author="jhipster" context="dev">
         <sql>
             INSERT INTO `note` VALUES
-            (951, 'Eddie', 'Eddie Notes',  '2018-05-13T14:30:23.506-07:00', NULL, 1001),
-            (952, 'Eddie BNB', '2k something',  '2018-05-13T14:30:23.506-07:00', 951, NULL),
-            (953, 'Eddie BNB', 'Can now cancel into dust',  '2018-05-13T14:30:23.506-07:00', 952, NULL)
+            (951, 'Eddie', 'Eddie Notes',  '2018-05-13T14:30:23.506-07:00', NULL, 1001, 'tag'),
+            (952, 'Eddie BNB', '2k something',  '2018-05-13T14:30:23.506-07:00', 951, NULL, 'tag'),
+            (953, 'Eddie BNB', 'Can now cancel into dust',  '2018-05-13T14:30:23.506-07:00', 952, NULL, 'tag')
         </sql>
 
     </changeSet>
